@@ -1,9 +1,10 @@
 #include <iostream>
-#include<conio.h>
 #include<stdio.h>
+using namespace std;
 
-
+// the partition method...
 int partition(int A[], int l, int h){
+//taking the pivot element from the array , to divide the array into 2 subarray , one left of the pivot and one right of the pivot...
 	int pivot = A[l];
 	int i,j,temp; i=l; j=h;
 	while(i<j){
@@ -18,6 +19,7 @@ int partition(int A[], int l, int h){
 			A[j]=temp;
 		}
 	}
+	//swaping the 2 elements...
 	temp=A[l];
 	A[l]=A[j];
 	A[j]=temp;
@@ -28,17 +30,20 @@ void quick_sort(int A[], int l , int h){
 	
 	if (l<h)
 	{
-		j= partition(A,l,h);
+		int j= partition(A,l,h);
 		quick_sort(A,l,j);
 		quick_sort(A,j+1,h);
 	}
 }
+
+//the driver function ...
 int main(){
+	//you can take input from the user...
 	int A[]= {17,13,14,46,23,37,43,12,1,39};
 	quick_sort(A,0,9);
 	for (int i = 0; i <10;i++)
 	{
-	   std::cout<<A[i]<<" ";
+	   cout<<A[i]<<" ";
 	}
 	return 0;
 }
